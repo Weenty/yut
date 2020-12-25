@@ -13,7 +13,7 @@
 <body>
   <div class="container">
     <h1>Добавление</h1>
-    <form action="#">
+    <form action="addregulator.php" method = 'post'> 
       <div class="form-group">
         <label for="exampleFormControlInput1">Название</label>
         <input type="text" class="form-control" name="naz" placeholder="Название направления">
@@ -23,19 +23,19 @@
         <input type="text" class="form-control" name="silka" placeholder="Ссылка направления">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <input class="form-check-input" type="checkbox" name="checkone" value="" id="defaultCheck1">
         <label class="form-check-label" for="defaultCheck1">
           Очно
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" >
+        <input class="form-check-input" type="checkbox" name="checktwo" value="" id="defaultCheck2" >
         <label class="form-check-label" for="defaultCheck2">
           Заочно
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" >
+        <input class="form-check-input" type="checkbox" name="checkthree" value="" id="defaultCheck3" >
         <label class="form-check-label" for="defaultCheck3">
           Очно-заочно
         </label>
