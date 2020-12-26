@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['naz']) && isset($_POST['silka']) && isset($_POST['opis']) && isset($_POST['kol_mest']) && isset($_POST['kol_mest_plat']) && isset($_POST['bal_mat']) && isset($_POST['bal_fizika']) && isset($_POST['bal_rus']) && isset($_POST['bal_inf']) && isset($_POST['bal_xim']) && isset($_POST['bal_obsh']) && isset($_POST['price'])) {
     include('database.php');
-    echo 'привет';
     $sql = "INSERT INTO `training_program` VALUES (null, :naz, :price, :kol_mest, :kol_mest_plat, :bal_mat, :bal_rus, :bal_fizika, :bal_obsh, :bal_inf, :bal_xim, :silka, :opis)";
     $st=$pdo->prepare($sql);
     $st->execute(array(
@@ -17,8 +16,33 @@ if (isset($_POST['naz']) && isset($_POST['silka']) && isset($_POST['opis']) && i
         'bal_xim'=>$_POST['bal_xim'],
         'silka'=>$_POST['silka'],
         'opis'=>$_POST['opis']
-
+        
     ));
-    $res=$pdo->lastInsertId();
-    var_dump($res);
+    $idProgram=$pdo->lastInsertId();
+    //var_dump($idProgram);
+    $sql2="INSERT INTO `training_program_has_training_form` VALUES (:id_program, :id_form)";
+    $st2=$pdo->prepare($sql2);
+    if (isset($_POST['checkone'])){
+        //Если очно, то добавляем в таблицу
+        $st2->execute(array(
+            'id_program'=>$idProgram,
+            'id_form'=>1
+        ));
+    }
+    if(isset($_POST['checktwo'])){
+        //Если заочно, то добавляем в таблицу
+        $st2->execute(array(
+            'id_program'=>$idProgram,
+            'id_form'=>2
+        ));
+
+    }
+    if (isset($_POST['checkthree'])){
+        //Если очно-заочно, то добавляем в таблицу
+        $st2->execute(array(
+            'id_program'=>$idProgram,
+            'id_form'=>3
+        ));
+    }
+    echo 'Добавление успешно выполнено';
 }
