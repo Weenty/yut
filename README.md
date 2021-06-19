@@ -5,6 +5,9 @@
 
 ## Главная страница сайта
 ![Image alt](https://github.com/Weenty/yut/blob/main/images/image.png)
+
+![ajnj](https://user-images.githubusercontent.com/73786123/122639315-8ff8dd00-d112-11eb-92c9-eb3dc0bd7864.png)
+
 ## Вид на мобильной версии
 ![Image alt](https://github.com/Weenty/yut/blob/main/images/image2.jpg)
 
